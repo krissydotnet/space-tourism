@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve -o",
     "build": "ng build",
+    "build:prod": "ng build --configuration production --base-href https://krissydotnet.github.io/space-tourism/",
+    "test:headless": "ng test --watch=false --browsers=ChromeHeadless",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
