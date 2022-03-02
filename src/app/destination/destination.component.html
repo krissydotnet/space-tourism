@@ -1,0 +1,33 @@
+<main id="main" class="grid-container grid-container--destination flow" *ngIf='selectedDestination'>
+   
+    <!-- <h1 class="numbered-title"><span aria-hidden="true">01</span> Pick your destination</h1> -->
+    <app-numbered-title [pageTitle]='pageTitle' [pageIndex]='pageIndex' class="page-title"></app-numbered-title>
+
+        <img [src]='selectedDestination.image' id="destination-image" [alt]='selectedDestination.imagealt'>
+ 
+    <div role="tablist" (keyup.arrowleft)="moveTabLeft()" (keyup.arrowright)="moveTabRight()" class="tab-list underline-indicators flex">
+        <button [attr.aria-selected]='isSelected(0)' (click)='changePanel(0)' role="tab" [tabindex]='isTabActive(0)' aria-controls="destination-tab" data-image="destination-image" class="uppercase text-accent letter-spacing-2 ff-sans-cond">Moon</button>
+        <button [attr.aria-selected]='isSelected(1)' (click)='changePanel(1)' role="tab" [tabindex]='isTabActive(1)' aria-controls="destination-tab" data-image="destination-image" class="uppercase text-accent letter-spacing-2 ff-sans-cond">Mars</button>
+        <button [attr.aria-selected]='isSelected(2)' (click)='changePanel(2)' role="tab" [tabindex]='isTabActive(2)' aria-controls="destination-tab" data-image="destination-image" class="uppercase text-accent letter-spacing-2 ff-sans-cond">Europa</button>
+        <button [attr.aria-selected]='isSelected(3)' (click)='changePanel(3)' role="tab" [tabindex]='isTabActive(3)' aria-controls="destination-tab" data-image="destination-image" class="uppercase text-accent letter-spacing-2 ff-sans-cond">Titan</button>
+    </div>
+
+ 
+    <article class="destination-info flow" id="destination-tab" role="tabpanel"  tabindex="0" >
+        <h2 class="fs-800 ff-serif uppercase">{{selectedDestination.location}}</h2>
+        
+    
+        <p>{{selectedDestination.description}}</p>
+
+        <div class="destination-meta flex">
+        <div>
+            <h3 class="text-accent fs-200 uppercase">Avg. Distance</h3>
+            <p class="ff-serif uppercase">{{selectedDestination.distance}}</p>
+        </div>
+        <div>
+            <h3 class="text-accent fs-200 uppercase">Est. travel time</h3>
+            <p class="ff-serif uppercase">{{selectedDestination.travel}}</p>
+        </div>
+        </div>
+    </article>
+    </main>

@@ -1,0 +1,22 @@
+<main id="main" class="grid-container grid-container--crew flow" *ngIf='selectedCrew'>
+
+    <app-numbered-title [pageTitle]='pageTitle' [pageIndex]=pageIndex class="page-title"></app-numbered-title>
+  
+    <div role="tablist" (keyup.arrowleft)="moveTabLeft()" (keyup.arrowright)="moveTabRight()" aria-label="crew member list" class="dot-indicators flex">
+        <button  [attr.aria-selected]='isSelected(0)' (click)='changePanel(0)' role="tab" [tabindex]='isTabActive(0)' aria-controls="crew-tab" data-image="commander-image"><span class="sr-only">The commander</span></button>
+        <button  [attr.aria-selected]='isSelected(1)' (click)='changePanel(1)' role="tab" [tabindex]='isTabActive(1)' aria-controls="crew-tab" data-image="specialist-image"><span class="sr-only">The mission specialist</span></button>
+        <button  [attr.aria-selected]='isSelected(2)' (click)='changePanel(2)' role="tab" [tabindex]='isTabActive(2)' aria-controls="crew-tab" data-image="pilot-image"><span class="sr-only">The pilot</span></button>
+        <button  [attr.aria-selected]='isSelected(3)' (click)='changePanel(3)' role="tab" [tabindex]='isTabActive(3)' aria-controls="crew-tab" data-image="engineer-image"><span class="sr-only">The crew engineer</span></button>
+    </div>
+    <article class="crew-details flow flow--space-small" id="crew-tab" role="tabpanel" tabindex="0">
+        <header class="flow">
+            <h2 class="fs-600 ff-seriff uppercase">{{selectedCrew.title}}</h2>
+            <p class="fs-700 uppercase ff-serif">{{selectedCrew.membername}}</p>
+        </header>
+        <p>{{selectedCrew.description}}</p>
+
+      
+    </article>
+    <div class="images" id="commander-image"><img [src]='selectedCrew.image'  [alt]='selectedCrew.imagealt'/></div>
+
+    </main>

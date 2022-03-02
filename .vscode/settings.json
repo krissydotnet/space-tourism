@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/05411fa6-f557-4361-b9c0-ef0671ff02e6/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/space-tourism-angular2022",
+    "appService.deploySubpath": "dist\\space-tourism"
+}

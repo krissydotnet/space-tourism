@@ -1,0 +1,24 @@
+<main id="main" class="grid-container grid-container--technology flow" *ngIf="selectedTechnology">
+
+   <app-numbered-title [pageTitle]='pageTitle' [pageIndex]=pageIndex class="page-title"></app-numbered-title>
+
+   <div class="images" id="vehicle-image">
+        <img class="portrait" [src]="selectedTechnology.imageportrait"  [alt]="selectedTechnology.imagealt"/>
+        <img class="landscape" [src]="selectedTechnology.imagelandscape" [alt]="selectedTechnology.imagealt"/>
+    </div>
+    
+    <div class="number-list flex" (keyup.arrowleft)="moveTabLeft()" (keyup.arrowright)="moveTabRight()" role="tablist">
+        <button [attr.aria-selected]='isSelected(0)' (click)='changePanel(0)' role="tab" [tabindex]='isTabActive(0)' aria-controls="technology-tab" data-image="vehicle-image">1</button>
+        <button [attr.aria-selected]='isSelected(1)' (click)='changePanel(1)' role="tab" [tabindex]='isTabActive(1)' aria-controls="technology-tab" data-image="capsule-image">2</button>
+        <button [attr.aria-selected]='isSelected(2)' (click)='changePanel(2)' role="tab" [tabindex]='isTabActive(2)' aria-controls="technology-tab" data-image="spaceport-image">3</button>
+    </div>
+    <article class="technology-details flow flow--space-small" id="technology-tab" role="tabpanel" tabindex="0">
+        <header class="flow">
+            <h2 class="text-accent ff-seriff uppercase">The Terminology ...</h2>
+            <p class="fs-700 uppercase ff-serif">{{selectedTechnology.term}}</p>
+        </header>
+        <p class="text-accent"> 
+            {{selectedTechnology.definition}}</p>
+
+      
+    </article>
